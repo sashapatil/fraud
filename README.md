@@ -171,4 +171,7 @@ It highlights the tradeoff between interpretability and predictive complexity in
 \- `credit\_card\_fraud.sql`: SQL queries for data exploration and rule-based classification
 
 
+Contribution
+
+Independent project focused on designing interpretable anomaly detection logic using SQL for large-scale datasets.
 
