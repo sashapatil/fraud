@@ -1,24 +1,16 @@
-# Credit Card Fraud Detection with SQL
-
-This repository contains an SQL-based approach for analyzing credit card transactions and flagging potential fraud.
-The analysis involves importing transaction data into MySQL, performing exploratory data analysis, and creating a rule-based system to flag
-suspicious transactions based on various features.
-
-## Project Overview
-
-\# Rule-Based Anomaly Detection in Transaction Data Using SQL
+# Credit Card Fraud Detection Using SQL
 
 
 
-\## Overview
+#### Overview
 
 
 
-This project uses SQL to build a rule-based anomaly detection system for identifying high-risk patterns in a large-scale transaction dataset (1,000,000 records). While applied to financial transactions, the methodology is relevant to public-sector systems that rely on transparent rule-based decision-making, such as benefits eligibility screening, fraud detection, and administrative risk flagging.
+This project uses SQL to build a rule-based anomaly detection system for identifying high-risk transaction patterns in a dataset of 1,000,000 records.
 
 
 
-The objective is to demonstrate how interpretable rules can be used to classify risk in high-volume datasets while maintaining transparency and clarity.
+The goal is to demonstrate how interpretable rules can be used to classify risk in large-scale datasets while maintaining transparency and clarity. Although applied to financial transactions, the approach is relevant to public-sector systems such as benefits screening, fraud detection, and administrative risk flagging.
 
 
 
@@ -26,49 +18,11 @@ The objective is to demonstrate how interpretable rules can be used to classify 
 
 
 
-\## Project Objective
+#### Objective
 
 
 
-The goal of this project is to identify anomalous transaction behavior using SQL-based analysis and classify transactions into risk levels based on observable behavioral patterns. The focus is on interpretability and decision transparency rather than predictive machine learning.
-
-
-
-\---
-
-
-
-\## Dataset
-
-
-
-The dataset (Kaggle) contains approximately 1,000,000 transaction records with behavioral and transactional features used for anomaly detection.
-
-
-
-\### Key Features
-
-
-
-\- \*\*transaction\_id\*\*: Unique identifier for each transaction  
-
-\- \*\*distance\_from\_home\*\*: Distance from user’s home location  
-
-\- \*\*distance\_from\_last\_transaction\*\*: Distance from prior transaction location  
-
-\- \*\*ratio\_to\_median\_purchase\_price\*\*: Spending deviation metric  
-
-\- \*\*repeat\_retailer\*\*: Prior merchant usage indicator (0/1)  
-
-\- \*\*used\_chip\*\*: Payment method indicator (0/1)  
-
-\- \*\*used\_pin\_number\*\*: Authentication method indicator (0/1)  
-
-\- \*\*online\_order\*\*: Transaction channel indicator (0/1)  
-
-\- \*\*fraud\*\*: Ground truth label (0/1)  
-
-\- \*\*fraud\_flag\*\*: Rule-based risk classification (Low / Moderate / High)
+To identify anomalous transaction behavior using SQL-based analysis and classify transactions into risk levels based on observable behavioral patterns. This project prioritizes interpretability and transparency over predictive machine learning.
 
 
 
@@ -76,33 +30,69 @@ The dataset (Kaggle) contains approximately 1,000,000 transaction records with b
 
 
 
-\## Methodology
+#### Dataset
 
 
 
-\### 1. Data Exploration
-
-SQL queries were used to explore feature distributions and identify relationships between transaction behavior and fraud likelihood.
+Kaggle dataset containing \~1M transaction records with behavioral features.
 
 
 
-\### 2. Rule-Based Classification System
+Key Features:
 
-A transparent rule-based system was developed to classify transactions into risk categories using:
+\- transaction\_id: Unique identifier  
+
+\- distance\_from\_home: Distance from user’s home  
+
+\- distance\_from\_last\_transaction: Distance from previous transaction  
+
+\- ratio\_to\_median\_purchase\_price: Spending deviation metric  
+
+\- repeat\_retailer: Prior merchant usage (0/1)  
+
+\- used\_chip: Payment method indicator (0/1)  
+
+\- used\_pin\_number: Authentication method (0/1)  
+
+\- online\_order: Transaction channel (0/1)  
+
+\- fraud: Ground truth label (0/1)  
+
+\- fraud\_flag: Rule-based risk classification  
 
 
 
-\- Distance-based anomalies (home location and previous transaction distance)
-
-\- Spending behavior deviation (ratio to median purchase price)
-
-\- Transaction method indicators (online order, PIN, chip usage)
-
-\- Merchant familiarity (repeat retailer usage)
+\---
 
 
 
-\### Output Classes:
+#### Methodology
+
+
+
+SQL Analysis:
+
+\- Explored feature distributions and behavioral patterns
+
+\- Identified relationships between transaction behavior and fraud likelihood
+
+
+
+Rule-Based Classification:
+
+Transactions were classified using interpretable rules based on:
+
+\- Distance anomalies
+
+\- Spending deviation
+
+\- Payment method signals
+
+\- Merchant familiarity
+
+
+
+Output Classes:
 
 \- Low Risk  
 
@@ -116,43 +106,17 @@ A transparent rule-based system was developed to classify transactions into risk
 
 
 
-\## Key Findings
+#### Key Findings
 
 
 
-\- Large deviations from typical spending behavior are strongly associated with higher risk classification.  
+\- Spending deviation is strongly associated with higher risk classification  
 
-\- Distance-based anomalies are important indicators of unusual transaction activity.  
+\- Distance-based anomalies are key fraud indicators  
 
-\- Combining multiple behavioral signals improves the clarity and consistency of risk classification.  
+\- Combining multiple signals improves classification consistency  
 
-\- Rule-based systems prioritize interpretability but may miss complex patterns found in statistical or machine learning models.  
-
-
-
-\---
-
-
-
-\## Policy Relevance
-
-
-
-Although developed using financial transaction data, this methodology is applicable to public-sector systems that rely on rule-based decision frameworks, including:
-
-
-
-\- Public benefits fraud detection systems  
-
-\- Eligibility screening processes  
-
-\- Housing and service allocation prioritization  
-
-\- Administrative audit and compliance review systems  
-
-
-
-This project highlights a key tradeoff in policy analytics: \*\*interpretable rule-based systems provide transparency and accountability, while more complex models may improve predictive performance but reduce explainability.\*\*
+\- Rule-based systems improve interpretability but may miss complex patterns  
 
 
 
@@ -160,17 +124,23 @@ This project highlights a key tradeoff in policy analytics: \*\*interpretable ru
 
 
 
-\## Limitations
+#### Policy Relevance
 
 
 
-\- Rule-based logic is heuristic and not statistically optimized  
+This approach is applicable to public-sector systems that rely on transparent decision rules, including:
 
-\- Does not capture nonlinear or evolving behavioral patterns  
+\- Benefits eligibility screening  
 
-\- No machine learning baseline comparison included  
+\- Fraud detection systems  
 
-\- Potential for false positives due to rigid classification thresholds  
+\- Housing and service prioritization  
+
+\- Administrative compliance monitoring  
+
+
+
+It highlights the tradeoff between interpretability and predictive complexity in policy analytics.
 
 
 
@@ -178,27 +148,15 @@ This project highlights a key tradeoff in policy analytics: \*\*interpretable ru
 
 
 
-\## Tools Used
+#### Tools Used
 
 
 
 \- SQL (MySQL)
 
-\- Exploratory Data Analysis (EDA)
+\- Exploratory Data Analysis
 
-\- Rule-based classification logic
-
-
-
-\---
-
-
-
-\## Project Structure
-
-
-
-\- `credit\_card\_fraud.sql`: SQL scripts for data exploration and rule-based classification
+\- Rule-based classification design
 
 
 
@@ -206,11 +164,11 @@ This project highlights a key tradeoff in policy analytics: \*\*interpretable ru
 
 
 
-\## Contribution
+#### Files
 
 
 
-This is an independent applied data analysis project focused on building interpretable anomaly detection systems using SQL in large-scale datasets.
+\- `credit\_card\_fraud.sql`: SQL queries for data exploration and rule-based classification
 
 
 
